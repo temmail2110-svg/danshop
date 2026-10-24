@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DanShop - من نحن</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 900px) {
+            .navbar {
+                flex-wrap: wrap !important;
+                padding: 10px 0 !important;
+                gap: 10px !important;
+            }
+            .logo {
+                font-size: 1.3rem !important;
+            }
+            .nav-actions {
+                margin-inline-start: auto !important;
+                gap: 10px !important;
+            }
+            .lang-switch {
+                display: none !important;
+            }
+            .menu-toggle {
+                display: block !important;
+            }
+            .nav-links {
+                z-index: 99999 !important;
+            }
+            .mobile-overlay {
+                z-index: 99998 !important;
+            }
+            .site-header {
+                z-index: 100000 !important;
+            }
+        }
+        /* إصلاح قسم من نحن */
+        
+        .about-hero {
+            display: flex !important;
+            align-items: center !important;
+            gap: 40px !important;
+            background: white !important;
+            padding: 40px !important;
+            border-radius: var(--radius) !important;
+            box-shadow: var(--shadow-sm) !important;
+            margin-bottom: 40px !important;
+            margin-top: 40px !important;
+        }
+        
+        .about-text {
+            flex: 1 !important;
+        }
+        
+        .about-text h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+            color: var(--text-dark) !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .about-text p {
+            color: var(--text-muted) !important;
+            font-size: 1.05rem !important;
+            line-height: 1.8 !important;
+            margin-bottom: 15px !important;
+        }
+        /* إصلاح صورة من نحن (تصغيرها وضبط أبعادها) */
+        
+        .about-image {
+            flex: 1 !important;
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow-md) !important;
+            max-height: 400px !important;
+        }
+        
+        .about-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+        /* إصلاح قسم المميزات (النصوص والإيقونات) */
+        
+        .features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+            gap: 25px !important;
+            margin-bottom: 50px !important;
+        }
+        
+        .feature-box {
+            background: white !important;
+            padding: 30px 20px !important;
+            border-radius: var(--radius) !important;
+            text-align: center !important;
+            box-shadow: var(--shadow-sm) !important;
+            border: 1px solid var(--border) !important;
+            transition: 0.3s !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px) !important;
+            border-color: var(--accent) !important;
+        }
+        
+        .feature-icon {
+            width: 70px !important;
+            height: 70px !important;
+            background: #e6f0f9 !important;
+            color: var(--primary) !important;
+            border-radius: 50% !important;
+            display: grid !important;
+            place-items: center !important;
+            font-size: 2rem !important;
+            margin: 0 auto 15px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .feature-box h3 {
+            color: var(--primary) !important;
+            margin-bottom: 10px !important;
+            font-size: 1.1rem !important;
+            font-weight: 800 !important;
+            display: block !important;
+        }
+        
+        .feature-box p {
+            color: var(--text-muted) !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            display: block !important;
+            margin: 0 !important;
+        }
+        
+        @media (max-width: 900px) {
+            .about-hero {
+                flex-direction: column !important;
+                padding: 20px !important;
+            }
+            .about-image {
+                order: -1 !important;
+                max-height: 250px !important;
+            }
+        }
+        /* الفوتر الجديد */
+        
+        .my-footer {
+            background: #0b1f33 !important;
+            color: #cbd5e1 !important;
+            padding: 60px 0 20px !important;
+            margin-top: 60px !important;
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        
+        .my-footer-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 30px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .my-footer-col h4 {
+            color: #ffffff !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 20px !important;
+            position: relative !important;
+            padding-bottom: 10px !important;
+        }
+        
+        .my-footer-col h4::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            right: 0 !important;
+            width: 40px !important;
+            height: 3px !important;
+            background: var(--accent) !important;
+        }
+        
+        [dir="ltr"] .my-footer-col h4::after {
+            right: auto !important;
+            left: 0 !important;
+        }
+        
+        .my-footer-col p {
+            line-height: 1.8 !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .my-footer-col ul {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+        
+        .my-footer-col ul li {
+            margin-bottom: 12px !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .my-footer-col ul li a {
+            color: #cbd5e1 !important;
+            transition: 0.3s !important;
+        }
+        
+        .my-footer-col ul li a:hover {
+            color: var(--accent) !important;
+            padding-right: 5px !important;
+        }
+        
+        [dir="ltr"] .my-footer-col ul li a:hover {
+            padding-right: 0 !important;
+            padding-left: 5px !important;
+        }
+        
+        .my-footer-contact li {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+        
+        .my-footer-contact i {
+            color: var(--accent) !important;
+            width: 20px !important;
+        }
+        
+        .my-socials {
+            display: flex !important;
+            gap: 10px !important;
+        }
+        
+        .my-socials a {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 50% !important;
+            display: grid !important;
+            place-items: center !important;
+            color: #fff !important;
+            transition: 0.3s !important;
+        }
+        
+        .my-socials a:hover {
+            background: var(--accent) !important;
+            transform: translateY(-3px) !important;
+        }
+        
+        .my-footer-bottom {
+            text-align: center !important;
+            padding-top: 20px !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            font-size: 0.9rem !important;
+            color: #94a3b8 !important;
+        }
+        
+        @media (max-width: 480px) {
+            .my-footer-col h4::after {
+                right: 50% !important;
+                transform: translateX(50%) !important;
+            }
+            [dir="ltr"] .my-footer-col h4::after {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+            .my-footer-col {
+                text-align: center !important;
+            }
+            .my-socials,
+            .my-footer-contact li {
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-overlay" id="mobile-overlay" onclick="toggleMenu()"></div>
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" data-i18n="home">الرئيسية</a>
+                <a href="products.html" data-i18n="products">المنتجات</a>
+                <a href="about.html" class="active" data-i18n="about">من نحن</a>
+                <a href="contact.html" data-i18n="contact">اتصل بنا</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button onclick="toggleLang('ar')" class="active" id="btn-ar">ع</button>
+                    <button onclick="toggleLang('en')" id="btn-en">EN</button>
+                </div>
+                <a href="cart.html" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge" style="display:none;">0</span></a>
+                <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        <div class="about-hero">
+            <div class="about-text">
+                <h1 data-i18n="about">من نحن</h1>
+                <p data-i18n="about_us_text">مرحباً بك في دان شوب. نحن وجهتك الأولى في القاهرة لجميع مستلزماتك الكهربائية. نؤمن بأن الجودة هي الأساس، لذلك نختار منتجاتنا بعناية من أفضل العلامات التجارية لنضمن لك الأمان والكفاءة.</p>
+                <p data-i18n="about_text">دان شوب هو متجرك المتخصص في المنتجات الكهربائية عالية الجودة في القاهرة. نوفر تشكيلة واسعة من الأدوات والأجهزة.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=800&q=80" alt="DanShop Store">
+            </div>
+        </div>
+
+        <h2 class="page-title" style="text-align:center; margin-bottom:30px;" data-i18n="why_choose_us">لماذا تختار دان شوب؟</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 data-i18n="feat_1_title">جودة أصلية 100%</h3>
+                <p data-i18n="feat_1_desc">جميع منتجاتنا أصلية ومطابقة للمواصفات القياسية.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3 data-i18n="feat_2_title">توصيل سريع</h3>
+                <p data-i18n="feat_2_desc">نوفر خدمة توصيل سريعة وآمنة لجميع محافظات مصر.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <h3 data-i18n="feat_3_title">دعم فني متواصل</h3>
+                <p data-i18n="feat_3_desc">فريقنا جاهز لمساعدتك في اختيار المنتج المناسب.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+                <h3 data-i18n="feat_4_title">أسعار تنافسية</h3>
+                <p data-i18n="feat_4_desc">نقدم أفضل الأسعار في السوق مع ضمان الجودة.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="my-footer">
+        <div class="container">
+            <div class="my-footer-grid">
+                <div class="my-footer-col">
+                    <h4><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</h4>
+                    <p data-i18n="about_text"></p>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="quick_links">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="products">المنتجات</a></li>
+                        <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="contact">اتصل بنا</h4>
+                    <ul class="my-footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> +20 100 000 0000</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@danshop.com</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="our_location">القاهرة، مصر</span></li>
+                    </ul>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="follow_us">تابعنا</h4>
+                    <div class="my-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-footer-bottom">
+                &copy; 2024 DanShop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

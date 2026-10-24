@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DanShop - الرئيسية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+            color: white !important;
+            padding: 60px 20px !important;
+            text-align: center !important;
+            border-radius: 0 0 20px 20px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .hero-section h1 {
+            font-size: clamp(2rem, 5vw, 3rem) !important;
+            margin-bottom: 15px !important;
+            font-weight: 800 !important;
+        }
+        
+        .hero-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem) !important;
+            opacity: 0.9 !important;
+            margin-bottom: 30px !important;
+        }
+        
+        .hero-btn {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 15px 35px !important;
+            font-size: 1.1rem !important;
+            border-radius: 30px !important;
+            display: inline-block !important;
+            font-weight: 700 !important;
+            transition: 0.3s !important;
+        }
+        
+        .hero-btn:hover {
+            background: var(--accent-hover) !important;
+            transform: translateY(-3px) !important;
+        }
+        
+        .my-footer {
+            background: #0b1f33 !important;
+            color: #cbd5e1 !important;
+            padding: 60px 0 20px !important;
+            margin-top: 60px !important;
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        
+        .my-footer-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 30px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .my-footer-col h4 {
+            color: #ffffff !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 20px !important;
+            position: relative !important;
+            padding-bottom: 10px !important;
+        }
+        
+        .my-footer-col h4::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            right: 0 !important;
+            width: 40px !important;
+            height: 3px !important;
+            background: var(--accent) !important;
+        }
+        
+        [dir="ltr"] .my-footer-col h4::after {
+            right: auto !important;
+            left: 0 !important;
+        }
+        
+        .my-footer-col p {
+            line-height: 1.8 !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .my-footer-col ul {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+        
+        .my-footer-col ul li {
+            margin-bottom: 12px !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .my-footer-col ul li a {
+            color: #cbd5e1 !important;
+            transition: 0.3s !important;
+        }
+        
+        .my-footer-col ul li a:hover {
+            color: var(--accent) !important;
+            padding-right: 5px !important;
+        }
+        
+        [dir="ltr"] .my-footer-col ul li a:hover {
+            padding-right: 0 !important;
+            padding-left: 5px !important;
+        }
+        
+        .my-footer-contact li {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+        
+        .my-footer-contact i {
+            color: var(--accent) !important;
+            width: 20px !important;
+        }
+        
+        .my-socials {
+            display: flex !important;
+            gap: 10px !important;
+        }
+        
+        .my-socials a {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 50% !important;
+            display: grid !important;
+            place-items: center !important;
+            color: #fff !important;
+            transition: 0.3s !important;
+        }
+        
+        .my-socials a:hover {
+            background: var(--accent) !important;
+            transform: translateY(-3px) !important;
+        }
+        
+        .my-footer-bottom {
+            text-align: center !important;
+            padding-top: 20px !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            font-size: 0.9rem !important;
+            color: #94a3b8 !important;
+        }
+        
+        @media (max-width: 480px) {
+            .my-footer-col h4::after {
+                right: 50% !important;
+                transform: translateX(50%) !important;
+            }
+            [dir="ltr"] .my-footer-col h4::after {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+            .my-footer-col {
+                text-align: center !important;
+            }
+            .my-socials,
+            .my-footer-contact li {
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="topbar">
+            <div class="container topbar-inner">
+                <div class="topbar-left"><span><i class="fa-solid fa-phone"></i> +20 100 000 0000</span></div>
+            </div>
+        </div>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="active" data-i18n="home">الرئيسية</a>
+                <a href="products.html" data-i18n="products">المنتجات</a>
+                <a href="about.html" data-i18n="about">من نحن</a>
+                <a href="contact.html" data-i18n="contact">اتصل بنا</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button onclick="toggleLang('ar')" class="active" id="btn-ar">ع</button>
+                    <button onclick="toggleLang('en')" id="btn-en">EN</button>
+                </div>
+                <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <section class="hero-section">
+            <div class="container">
+                <h1 data-i18n="welcome_hero">مرحباً بك في دان شوب</h1>
+                <p data-i18n="hero_desc">وجهتك الأولى لأفضل الأجهزة والمنتجات الكهربائية في القاهرة.</p>
+                <a href="products.html" class="hero-btn" data-i18n="shop_now">تصفح المنتجات</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <h2 class="page-title" data-i18n="featured">منتجات مميزة</h2>
+            <div class="products-grid" id="featured-products"></div>
+            <div style="text-align:center; margin-top:40px;">
+                <a href="products.html" class="btn btn-primary" data-i18n="view_all">عرض كل المنتجات</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="my-footer">
+        <div class="container">
+            <div class="my-footer-grid">
+                <div class="my-footer-col">
+                    <h4><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</h4>
+                    <p data-i18n="about_text"></p>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="quick_links">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="products">المنتجات</a></li>
+                        <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="contact">اتصل بنا</h4>
+                    <ul class="my-footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> +20 100 000 0000</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@danshop.com</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="our_location">القاهرة، مصر</span></li>
+                    </ul>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="follow_us">تابعنا</h4>
+                    <div class="my-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-footer-bottom">
+                &copy; 2024 DanShop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

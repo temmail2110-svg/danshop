@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DanShop - اتصل بنا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 900px) {
+            .navbar {
+                flex-wrap: wrap !important;
+                padding: 10px 0 !important;
+                gap: 10px !important;
+            }
+            .logo {
+                font-size: 1.3rem !important;
+            }
+            .nav-actions {
+                margin-inline-start: auto !important;
+                gap: 10px !important;
+            }
+            .lang-switch {
+                display: none !important;
+            }
+            .menu-toggle {
+                display: block !important;
+            }
+            .nav-links {
+                z-index: 99999 !important;
+            }
+            .mobile-overlay {
+                z-index: 99998 !important;
+            }
+            .site-header {
+                z-index: 100000 !important;
+            }
+        }
+        
+        .contact-page-header {
+            text-align: center !important;
+            margin-top: 40px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .contact-page-header h1 {
+            font-size: clamp(2rem, 5vw, 2.5rem) !important;
+            color: var(--text-dark) !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .contact-page-header p {
+            color: var(--text-muted) !important;
+            font-size: 1.1rem !important;
+            max-width: 700px !important;
+            margin: 0 auto !important;
+        }
+        
+        .contact-grid-new {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 25px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .contact-card {
+            background: white !important;
+            padding: 30px !important;
+            border-radius: var(--radius) !important;
+            box-shadow: var(--shadow-sm) !important;
+            text-align: center !important;
+            border: 1px solid var(--border) !important;
+            transition: 0.3s !important;
+            text-decoration: none !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: var(--shadow-md) !important;
+            border-color: var(--primary) !important;
+        }
+        
+        .contact-card .icon-circle {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            display: grid !important;
+            place-items: center !important;
+            font-size: 2.2rem !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .contact-card h3 {
+            color: var(--text-dark) !important;
+            margin-bottom: 10px !important;
+            font-size: 1.2rem !important;
+        }
+        
+        .contact-card p {
+            color: var(--text-muted) !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            direction: ltr !important;
+        }
+        
+        .contact-card span {
+            margin-top: 15px !important;
+            color: var(--primary) !important;
+            font-weight: 700 !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .bg-phone {
+            background: #e0f2fe !important;
+            color: #0284c7 !important;
+        }
+        
+        .bg-wa {
+            background: #dcfce7 !important;
+            color: #16a34a !important;
+        }
+        
+        .bg-mail {
+            background: #fef3c7 !important;
+            color: #d97706 !important;
+        }
+        
+        .bg-loc {
+            background: #fee2e2 !important;
+            color: #dc2626 !important;
+        }
+        
+        .working-hours {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 20px !important;
+            border-radius: var(--radius) !important;
+            text-align: center !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            box-shadow: var(--shadow-sm) !important;
+            margin-bottom: 40px !important;
+        }
+        /* الفوتر الجديد */
+        
+        .my-footer {
+            background: #0b1f33 !important;
+            color: #cbd5e1 !important;
+            padding: 60px 0 20px !important;
+            margin-top: 60px !important;
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        
+        .my-footer-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 30px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .my-footer-col h4 {
+            color: #ffffff !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 20px !important;
+            position: relative !important;
+            padding-bottom: 10px !important;
+        }
+        
+        .my-footer-col h4::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            right: 0 !important;
+            width: 40px !important;
+            height: 3px !important;
+            background: var(--accent) !important;
+        }
+        
+        [dir="ltr"] .my-footer-col h4::after {
+            right: auto !important;
+            left: 0 !important;
+        }
+        
+        .my-footer-col p {
+            line-height: 1.8 !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .my-footer-col ul {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+        
+        .my-footer-col ul li {
+            margin-bottom: 12px !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .my-footer-col ul li a {
+            color: #cbd5e1 !important;
+            transition: 0.3s !important;
+        }
+        
+        .my-footer-col ul li a:hover {
+            color: var(--accent) !important;
+            padding-right: 5px !important;
+        }
+        
+        [dir="ltr"] .my-footer-col ul li a:hover {
+            padding-right: 0 !important;
+            padding-left: 5px !important;
+        }
+        
+        .my-footer-contact li {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+        
+        .my-footer-contact i {
+            color: var(--accent) !important;
+            width: 20px !important;
+        }
+        
+        .my-socials {
+            display: flex !important;
+            gap: 10px !important;
+        }
+        
+        .my-socials a {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 50% !important;
+            display: grid !important;
+            place-items: center !important;
+            color: #fff !important;
+            transition: 0.3s !important;
+        }
+        
+        .my-socials a:hover {
+            background: var(--accent) !important;
+            transform: translateY(-3px) !important;
+        }
+        
+        .my-footer-bottom {
+            text-align: center !important;
+            padding-top: 20px !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            font-size: 0.9rem !important;
+            color: #94a3b8 !important;
+        }
+        
+        @media (max-width: 480px) {
+            .my-footer-col h4::after {
+                right: 50% !important;
+                transform: translateX(50%) !important;
+            }
+            [dir="ltr"] .my-footer-col h4::after {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+            .my-footer-col {
+                text-align: center !important;
+            }
+            .my-socials,
+            .my-footer-contact li {
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-overlay" id="mobile-overlay" onclick="toggleMenu()"></div>
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" data-i18n="home">الرئيسية</a>
+                <a href="products.html" data-i18n="products">المنتجات</a>
+                <a href="about.html" data-i18n="about">من نحن</a>
+                <a href="contact.html" class="active" data-i18n="contact">اتصل بنا</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button onclick="toggleLang('ar')" class="active" id="btn-ar">ع</button>
+                    <button onclick="toggleLang('en')" id="btn-en">EN</button>
+                </div>
+                <a href="cart.html" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge" style="display:none;">0</span></a>
+                <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        <div class="contact-page-header">
+            <h1 data-i18n="contact">اتصل بنا</h1>
+            <p data-i18n="contact_sub">يسعدنا تواصلك معنا في أي وقت. يمكنك الاتصال بنا أو مراسلتنا مباشرة عبر الروابط التالية:</p>
+        </div>
+
+        <div class="contact-grid-new">
+            <a href="tel:+201000000000" class="contact-card">
+                <div class="icon-circle bg-phone"><i class="fa-solid fa-phone"></i></div>
+                <h3 data-i18n="call_now">اتصل الآن</h3>
+                <p>+20 100 000 0000</p>
+                <span data-i18n="call_now">اتصل الآن <i class="fa-solid fa-arrow-left"></i></span>
+            </a>
+            <a href="https://wa.me/201000000000" target="_blank" class="contact-card">
+                <div class="icon-circle bg-wa"><i class="fa-brands fa-whatsapp"></i></div>
+                <h3 data-i18n="whatsapp">واتساب</h3>
+                <p>+20 100 000 0000</p>
+                <span data-i18n="whatsapp">راسلنا <i class="fa-solid fa-arrow-left"></i></span>
+            </a>
+            <a href="mailto:info@danshop.com" class="contact-card">
+                <div class="icon-circle bg-mail"><i class="fa-solid fa-envelope"></i></div>
+                <h3 data-i18n="email_us">راسلنا</h3>
+                <p>info@danshop.com</p>
+                <span data-i18n="email_us">أرسل إيميل <i class="fa-solid fa-arrow-left"></i></span>
+            </a>
+            <a href="#" class="contact-card" onclick="alert('سيتم فتح خرائط جوجل قريباً'); return false;">
+                <div class="icon-circle bg-loc"><i class="fa-solid fa-location-dot"></i></div>
+                <h3 data-i18n="visit_us">زورونا</h3>
+                <p data-i18n="our_location">القاهرة، مصر</p>
+                <span data-i18n="visit_us">عرض الخريطة <i class="fa-solid fa-arrow-left"></i></span>
+            </a>
+        </div>
+
+        <div class="working-hours">
+            <i class="fa-regular fa-clock"></i> <span data-i18n="working_hours">ساعات العمل: من السبت إلى الخميس، 9 صباحاً - 10 مساءً</span>
+        </div>
+    </main>
+
+    <footer class="my-footer">
+        <div class="container">
+            <div class="my-footer-grid">
+                <div class="my-footer-col">
+                    <h4><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</h4>
+                    <p data-i18n="about_text"></p>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="quick_links">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="products">المنتجات</a></li>
+                        <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="contact">اتصل بنا</h4>
+                    <ul class="my-footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> +20 100 000 0000</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@danshop.com</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="our_location">القاهرة، مصر</span></li>
+                    </ul>
+                </div>
+                <div class="my-footer-col">
+                    <h4 data-i18n="follow_us">تابعنا</h4>
+                    <div class="my-socials">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-footer-bottom">
+                &copy; 2024 DanShop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

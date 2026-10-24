@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DanShop - المنتجات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> DanShop</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" data-i18n="home">الرئيسية</a>
+                <a href="products.html" class="active" data-i18n="products">المنتجات</a>
+                <a href="about.html" data-i18n="about">من نحن</a>
+                <a href="contact.html" data-i18n="contact">اتصل بنا</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button onclick="toggleLang('ar')" class="active" id="btn-ar">ع</button>
+                    <button onclick="toggleLang('en')" id="btn-en">EN</button>
+                </div>
+                <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main container" style="padding-top:30px;">
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label data-i18n="filter">بحث</label>
+                <input type="text" id="search-input" placeholder="...">
+            </div>
+            <div class="filter-group">
+                <label data-i18n="category">التصنيف</label>
+                <select id="filter-cat">
+                    <option value="0" data-i18n="all_cats">كل التصنيفات</option>
+                    <option value="1">أجهزة منزلية</option><option value="2">إضاءة</option>
+                    <option value="3">كابلات</option><option value="4">أدوات كهربائية</option><option value="5">مفاتيح</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label data-i18n="sort">الترتيب</label>
+                <select id="filter-sort">
+                    <option value="newest" data-i18n="sort_newest">الأحدث</option>
+                    <option value="low" data-i18n="sort_low">الأرخص أولاً</option>
+                    <option value="high" data-i18n="sort_high">الأغلى أولاً</option>
+                </select>
+            </div>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
